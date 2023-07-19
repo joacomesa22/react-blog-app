@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebase-config";
-import { BsFillTrashFill } from "react-icons/bs";
+import { FaTrash } from "react-icons/fa";
 
 function Home({ isAuth }) {
   const [postsList, setPostsList] = useState([]);
@@ -22,32 +22,32 @@ function Home({ isAuth }) {
 
   return (
     <div className="homePage">
-      {postsList.map((post) => {
-        return (
-          <div className="post" key={post.id}>
-            <div className="postHeader">
-              <div className="title">
-                <h1>{post.title}</h1>
+      <div className="posts__container">
+        {postsList.map((post) => {
+          return (
+            <div className="post" key={post.id}>
+              <h2>{post.title}</h2>
+              <div className="postTextContainer">
+                <p>{post.postText}</p>
               </div>
-              <div className="deletePost">
-                {isAuth && post.author.id === auth.currentUser.uid && (
-                  <button
-                    onClick={() => {
-                      deletePost(post.id);
-                    }}
-                  >
-                    <BsFillTrashFill />
-                  </button>
-                )}
+              <div className="postFooter">
+                <h3>@ {post.author.name}</h3>
+                <div className="deletePost">
+                  {isAuth && post.author.id === auth.currentUser.uid && (
+                    <button
+                      onClick={() => {
+                        deletePost(post.id);
+                      }}
+                    >
+                      <FaTrash />
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
-            <div className="postTextContainer">
-              <p>{post.postText}</p>
-            </div>
-            <h3>@ {post.author.name}</h3>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }

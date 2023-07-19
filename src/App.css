@@ -1,98 +1,124 @@
-.App {
-  text-align: center;
-  font-size: 3rem;
-}
-
 body {
-  padding: 0%;
-  margin: 0%;
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  background-color: #FAD961;
+  background: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
 }
 
-nav {
-  margin: 0;
-  width: 100%;
-  height: 80px;
-  background-color: black;
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 2px 2px 40px rgba(0, 0, 0, 0.4);
+}
+
+.nav__links {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
-  color: white;
-  text-decoration: none;
+  gap: 1rem;
 }
 
-a {
-  color: white;
+.nav__links a {
   text-decoration: none;
-  margin: 10px;
   font-size: 25px;
+  color: #000;
+  font-weight: bold;
+  transition: all .3s;
+}
+
+.nav__links a:hover {
+  color: #fff;
+}
+
+.nav__logo {
+  max-width: 60px;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.nav__logo:hover {
+  transform: scale(1.1);
+}
+
+.nav__links-logout {
+  background: transparent;
+  border: 2px solid #000;
+  font-size: 20px;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.nav__links-logout:hover {
+  background: radial-gradient(#000, #272727);
+  color: #fff;
 }
 
 .createPostPage {
-  width: 100%;
-  height: calc(100vh - 80px);
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
 }
 
 .cpContainer {
   width: 500px;
-  height: auto;
-  padding: 20px;
-  background-color: black;
+  padding: 4rem;
+  background: radial-gradient(#000, #272727);
   border-radius: 12px;
-  color: white;
+  color: #fff;
   display: flex;
+  gap: 1rem;
   flex-direction: column;
+  box-shadow: 2px 2px 40px rgba(0, 0, 0, 0.4);
 }
 
 .cpContainer h1 {
   text-align: center;
+  font-size: 4rem;
 }
 
 .cpContainer label {
-  font-size: 25px;
+  font-size: 1.6rem;
 }
 
 .cpContainer .inputGp {
-  margin-top: 30px;
   display: flex;
+  gap: 6px;
   flex-direction: column;
 }
 
 .inputGp input,
 .inputGp textarea {
-  font-size: 18px;
+  font-size: 1.2rem;
   border: none;
-  border-radius: 2px;
-  padding: 5px;
-}
-
-.inputGp input {
-  height: 40px;
-}
-
-.inputGp textarea {
-  height: 150px;
+  border-radius: 4px;
+  padding: 0.5rem;
+  resize: none;
 }
 
 .cpContainer button {
   margin-top: 20px;
-  height: 40px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 18px;
+  padding: .8rem;
+  background-color: #FAD961;
+  background: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
+  transition: all .3s;
 }
 
-input,
-textarea {
-  margin-top: 5px;
+.cpContainer button:hover {
+  transform: translateY(-4px);
 }
 
 .loginPage {
-  width: 100vw;
-  height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,10 +126,11 @@ textarea {
 }
 
 .loginPage p {
-  font-size: 30px;
+  font-size: 2.6rem;
+  font-weight: bold;
 }
 
-/* GOOGLE BUTTOn */
+/* GOOGLE BUTTON */
 .login-with-google-btn {
   cursor: pointer;
   transition: background-color 0.3s, box-shadow 0.3s;
@@ -144,56 +171,60 @@ textarea {
 }
 
 .homePage {
-  width: 100%;
-  min-height: calc(100vh - 80px);
-  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.posts__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  gap: 40px;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
-.homePage .post {
-  width: 600px;
-  height: auto;
-  max-height: 600px;
-  background-color: rgb(250, 250, 250);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 15px;
-}
-
-.post .postHeader {
-  display: flex;
-  justify-content: center;
+.post {
+  max-width: 600px;
   width: 100%;
-}
-
-.postHeader .title {
-  flex: 50%;
-}
-
-.postHeader .deletePost {
-  flex: 50%;
+  background: linear-gradient(45deg, #fff, #e0e0e0);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  transition: all .3s;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+}
+
+.post h2 {
+  font-size: 2rem
+}
+
+.post:hover {
+  transform: translateY(-10px);
+}
+
+.postFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .deletePost button {
   border: none;
-
   background: none;
-  font-size: 30px;
+  font-size: 1.8rem;
   cursor: pointer;
+  transition: all .3s;
 }
 
-.post .postTextContainer {
+.deletePost button:hover {
+  transform: scale(1.2);
+}
+
+.postTextContainer {
   word-wrap: break-word;
-  height: auto;
-  max-height: 400px;
-  width: 100%;
-  overflow: hidden;
-  overflow-y: auto;
 }
