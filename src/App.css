@@ -170,10 +170,6 @@ body {
   cursor: not-allowed;
 }
 
-.noPosts {
-  font-size: 2rem;
-}
-
 .homePage {
   display: flex;
   justify-content: center;
