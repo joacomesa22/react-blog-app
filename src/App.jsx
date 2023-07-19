@@ -11,11 +11,14 @@ function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
   const signUserOut = () => {
-    signOut(auth).then(() => {
-      localStorage.clear();
-      setIsAuth(false);
-      window.location.pathname = "/login";
-    });
+    signOut(auth)
+      .then(() => {
+        localStorage.clear();
+        setIsAuth(false);
+      })
+      .then(() => {
+        window.location.pathname = "/login";
+      });
   };
 
   return (
